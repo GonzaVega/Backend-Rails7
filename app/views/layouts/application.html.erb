@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conferences</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container-fluid">
+        <%= link_to "ConferencesApp", root_path, class:"navbar-brand offset-md-1" %>
+        <div class="col-md-8 offset-md-1">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-2">
+              <li class="nav-item">
+                <%= link_to "Home", root_path, class:"nav-link" %>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Conferences</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li> <%= link_to 'Conferences listing', conferences_path, class: "dropdown-item" %></li>
+                  <li> <%= link_to "New conference", new_conference_path, class:"dropdown-item" %></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Users', users_path, class: "nav-link" %>
+              </li>
+            </ul>
+            <div class="nav navbar-nav pull-right", style="padding-right: 10%">
+              <%= link_to 'Add new user!', signup_path, class: "btn btn-dark" %>
+            </div>
+          </div>
+       </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

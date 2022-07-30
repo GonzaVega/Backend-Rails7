@@ -1,0 +1,3 @@
+class ConferencesUser < ApplicationRecord
+  
+end

@@ -1,0 +1,11 @@
+<div class="col-md-6 offset-md-3">
+  <div class="text-center">
+    <h1>Edit conference</h1>
+  </div>
+  <%= render "form", conference: @conference %>
+  <br>
+  <div class="text-center">
+    <%= link_to "Show this conference", @conference %> |
+    <%= link_to "Back to conferences", conferences_path %>
+  </div>
+</div>

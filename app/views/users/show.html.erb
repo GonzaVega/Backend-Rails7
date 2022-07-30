@@ -1,0 +1,76 @@
+<div class="col-md-4 offset-md-2">
+    <h1 class="col-md-12 offset-md-3" style="padding: 2%" ><%= @user.username %>'s profile:</h1>
+    <div class="card text-center shadow mb-6 bg-white rounded col-md-12 offset-md-3">
+        <div class="card-header font-italic">
+            <h5>Name: <%= @user.username %></h5>
+        </div>
+        <div class="card-body">
+            <p class="card-title">Bio: <%= @user.bio %></p>
+        </div>
+        <div class="card-body">
+            <p class="card-title">Company: <%= @user.company %></p>
+        </div>
+        <div class="card-footer text-muted">
+            <small>Joined <%= time_ago_in_words(@user.created_at) %> ago, edited <%= time_ago_in_words(@user.updated_at) %> ago</small>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-8 offset-md-3" style="background-color: #fff">
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item", style='padding:1px'>
+                    <%= link_to "New conference", new_conference_path, class:"btn btn-outline-success" %>
+                  </li>
+                  <li class="nav-item", style='padding:1px'>
+                    <%= link_to "Edit account", edit_user_path(@user), class:"btn btn-outline-info" %>
+                  </li>
+                  <li class="nav-item", style='padding:1px'>
+                    <%= link_to "Delete account", user_path(@user),  method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-outline-danger" %>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<h3 class="col-md-12 offset-md-3" style="padding: 2%"><%=@user.username%>'s conferences as Speaker:</h3>
+<% @as_speaker_conferences.each do |conference| %>
+  <div class="col-md-6 offset-md-3">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+      <div class="card-header font-italic">
+        Speaker: <%=conference.user.username %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to conference.title, conference_path(conference), class: "text-success" %></h5>
+        <p class="card-text">Abstract: <%= truncate( conference.abstract, length: 100) %></p>
+        <p class="card-text">Attendees: <%=   conference.users.map { |user| user.username}.to_sentence %></p>
+        <p class="card-text">Room: <%=  conference.room %></p>
+        <%= link_to "View", conference_path( conference), class: "btn btn-outline-success" %>
+        <%= link_to "Edit", edit_conference_path(conference), class: "btn btn-outline-info" %>
+        <%= link_to "Delete", conference_path(conference), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created <%= time_ago_in_words(conference.created_at) %> ago, edited <%= time_ago_in_words(conference.updated_at) %> ago</small>
+      </div>
+    </div>
+  </div>
+<% end %>
+<h3 class="col-md-12 offset-md-3" style="padding: 2%"><%=@user.username%>'s conferences as Attendee:</h3>
+<% @conferences.each do |conference| %>
+  <div class="col-md-6 offset-md-3">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+      <div class="card-header font-italic">
+        Speaker: <%=conference.user.username %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to conference.title, conference_path(conference), class: "text-success" %></h5>
+        <p class="card-text">Abstract: <%= truncate( conference.abstract, length: 100) %></p>
+        <p class="card-text">Attendees: <%=   conference.users.map { |user| user.username}.to_sentence %></p>
+        <p class="card-text">Room: <%=  conference.room %></p>
+        <%= link_to "View", conference_path( conference), class: "btn btn-outline-success" %>
+        <%= link_to "Edit", edit_conference_path(conference), class: "btn btn-outline-info" %>
+        <%= link_to "Delete", conference_path(conference), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created <%= time_ago_in_words(conference.created_at) %> ago, edited <%= time_ago_in_words(conference.updated_at) %> ago</small>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+    
+<div class="col-md-6 offset-md-3">
+  <div class="card px-1 py-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <%= form_with(model: conference) do |form| %>
+            <% if conference.errors.any? %>
+             <div style="color: red">
+              <h2><%= pluralize(conference.errors.count, "error") %> prohibited this conference from being saved:</h2>
+              <ul>
+                <% conference.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+             </div>
+          <% end %>
+          <div class="col-md-6 offset-md-1">
+            <h5 style="display-block">Speaker</h5>
+            <%= form.collection_select(:user_id, User.all, :id,   :username, { multiple: false, size: 4, class: "dropdown-menu" }) %>
+            </select>
+          </div>       
+          <div class="col-md-12", style="padding: 2%">
+            <%= form.label :title, style: "display: block" %>
+            <%= form.text_field :title, class: "form-control shadow rounded" %>
+          </div>
+          <div class="col-md-12", style="padding: 2%">
+            <%= form.label :abstract, style: "display: block" %>
+            <%= form.text_area :abstract, class: "form-control shadow rounded" %>
+          </div>
+          <div class="col-md-12", style="padding: 2%">
+            <%= form.label :room, style: "display: block" %>
+            <%= form.number_field :room, class: "form-control shadow rounded" %>
+          </div>
+          <div class="form-control shadow rounded" >
+            <p>Select your conference attendees:</p>
+            <hr>
+            <%= form.collection_check_boxes :user_ids, User.all, :id, :username do |an| %>
+              <%= an.label(class: "form-check form-check-label") {an.check_box(class: "form-check-input") + an.text } %>
+            <% end %>
+          </div> 
+          <hr>
+          <div class="text-center">
+            <%= form.submit(class: "btn btn-success") %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

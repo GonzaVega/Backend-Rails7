@@ -1,0 +1,49 @@
+<!--Landing Carrousel slidings-->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div id="carouselExampleDark" class="carousel carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="15000">
+      <div class="row" style="background-color: rgb(90, 90, 90)"><h1 class="text-center" style="color: white">Welcome to ConferencesApp!</h1></div>
+      <img src="https://www.eventoplus.com/content/thumbs/960_540/content/imgsxml/galerias/articulos/3454/big-experienciastecnologicas884.jpg" class="d-block w-100 center" alt="..." style="height:830px">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Manage a conferece and the people related to easily</h2>
+        <h4>You'll be able to set a conference, the speaker, attendees and much more! </h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="4500">
+      <div class="row" style="background-color: rgb(90, 90, 90)  "><h1 class="text-center" style="color: white">Start, edit or see a <%= link_to "Conference", conferences_path, style: "text-decoration: none" %></h1></div>
+      <div class="carousel-caption d-none d-md-block">
+        <h2>ConferencesApp allows you to perform successful conferences</h2>
+        <h4>Create a conferences, set the speaker, attendees, room, the abstract and much more!</h4>
+      </div>
+      <img src="https://img.caminofinancial.com/wp-content/uploads/2019/06/27203720/iStock-499517325-1024x683.jpg" class="d-block w-100" alt="..." style="height:830px">
+    </div>
+    <div class="carousel-item" data-bs-interval="4500">
+      <div class="row" style="background-color: rgb(90, 90, 90)"><h1 class="text-center" style="color: white">Manage and see ConferenceApp <%= link_to "Users", users_path, style: "text-decoration: none" %></h1></div>
+      <div class="carousel-caption d-none d-md-block">
+        <h2>See all the people participating in ConferencesApp</h2>
+        <h4>You can explore who is participating in our conferences, either as a speaker or an attendee</h4>
+      </div>
+      <img src="https://dilgm7or8odx9.cloudfront.net/wp-content/uploads/2022/05/conference-speaker-outreach.jpg" class="d-block w-100" alt="..." style="height:830px">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <%= form_with(model: @user, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+        <div class="form-group row">
+          <%= f.label :username, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.text_field :username, class: "form-control shadow rounded", placeholder: "Enter a username" %>
+          </div>
+        </div>
+        <div class="form-group row", style="padding: 1%">
+          <%= f.label :email, class: "col-2 col-form-label text-light" %>
+          <div class="col-10"> 
+            <%= f.email_field :email, class: "form-control shadow rounded", placeholder: "Enter your email address" %>
+          </div>
+        </div>
+        <div class="form-group row", style="padding: 1%">
+          <%= f.label :bio, class: "col-2 col-form-label text-light" %>
+          <div class="col-10"> 
+            <%= f.text_field :bio, class: "form-control shadow rounded", placeholder: "Share your bio" %>
+          </div>
+        </div>
+        <div class="form-group row", style="padding: 1%">
+          <%= f.label :company, class: "col-2 col-form-label text-light" %>
+          <div class="col-10"> 
+              <%= f.text_field :company, class: "form-control shadow rounded", placeholder: "Tell us which is your company" %>
+          </div>
+        </div>
+        <div class="form-group row", style="padding: 1%">
+          <%= f.label :password, class: "col-2 col-form-label text-light" %>
+          <div class="col-10"> 
+              <%= f.password_field :password_digest, class: "form-control shadow rounded", placeholder: "Choose a password" %>
+          </div>
+        </div>
+        <div class="form-group row justify-content-center", style="padding-top: 5%">
+          <%= f.submit(@user.new_record? ? "Sign up!" : "Update account", class: "btn btn-outline-light btn-lg") %>
+        </div>
+      <% end %>
+      <div class="mb-3">
+      </div>
+    </div>
+  </div>
+</div> 
+
+
